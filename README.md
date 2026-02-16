@@ -112,7 +112,9 @@ Application will start on:
 
 ---
 
-📬 Sample Usage
+## 📬 Sample Usage
+
+
 POST /payments
 
 Request
