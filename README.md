@@ -67,6 +67,10 @@ That is true idempotent payment processing.
 
 ⚡ Transactional service layer
 
+📐 Validation
+
+🔧 Exception Handling
+
 ---
 
 ## 🛠 Tools & Technologies Used
