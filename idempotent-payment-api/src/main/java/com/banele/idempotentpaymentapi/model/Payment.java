@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 
-// Table details
+// Table name
 @Table(
         name = "payments",
         uniqueConstraints = @UniqueConstraint(columnNames = "request_id")
@@ -32,7 +32,7 @@ public class Payment {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    // Default constructor (required by JPA)
+    // Required by JPA
     public Payment() {
     }
 
@@ -40,6 +40,13 @@ public class Payment {
         this.requestId = requestId;
         this.amount = amount;
         this.status = status;
+    }
+
+    // ✅ FIXED CONSTRUCTOR
+    public Payment(String requestId, BigDecimal amount) {
+        this.requestId = requestId;
+        this.amount = amount;
+        this.status = PaymentStatus.PENDING; // Prevents NULL status (fixes 500 error)
     }
 
     @PrePersist
@@ -53,7 +60,6 @@ public class Payment {
         return id;
     }
 
-    // You usually DO NOT set ID manually when using @GeneratedValue
     public void setId(String id) {
         this.id = id;
     }
@@ -90,3 +96,4 @@ public class Payment {
         this.createdAt = createdAt;
     }
 }
+
