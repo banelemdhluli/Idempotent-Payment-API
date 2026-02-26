@@ -1,7 +1,5 @@
 package com.banele.idempotentpaymentapi.dto;
 
-import com.banele.idempotentpaymentapi.model.PaymentStatus;
-
 import java.math.BigDecimal;
 
 public class PaymentResponse {
@@ -10,10 +8,10 @@ public class PaymentResponse {
 
     private String requestId;
     private BigDecimal amount;
-    private PaymentStatus status;
+    private String status;
 
     // Constructor
-    public PaymentResponse(String requestId, BigDecimal amount, PaymentStatus status) {
+    public PaymentResponse(String requestId, BigDecimal amount, String status) {
 
         this.requestId = requestId;
         this.amount = amount;
@@ -22,15 +20,8 @@ public class PaymentResponse {
 
     // Getters
 
-    public String getRequestId() {
-        return requestId;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public PaymentStatus getStatus() {
-        return status;
-    }
+    public String getRequestId() { return requestId; }
+    public BigDecimal getAmount() { return amount; }
+    public String getStatus() { return status; }
 }
+
